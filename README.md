@@ -42,4 +42,8 @@ yarn server || npm run server
 ```
 
 ### How to deploy on vercel?
-Create a new vercel project and link your github repository
+Use the vercel cli to deploy
+```
+yarn run vercel
+yarn run vercel --prod
+```
