@@ -1,6 +1,7 @@
 # clean-code-typescript-api
 
 ### Features
+
 <ul>
   <li>
     <a href="https://typescriptlang.org/">
@@ -15,9 +16,9 @@
     </a>
   </li>
   <li>
-    <a href="https://babeljs.io/">
-      <img align="center" alt="Babel" height="20" width="30" src="https://d33wubrfki0l68.cloudfront.net/7a197cfe44548cc1a3f581152af70a3051e11671/78df8/img/babel.svg">
-      Babel
+    <a href="https://jestjs.io/">
+      <img align="center" alt="Jest" height="20" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jest/jest-plain.svg">
+      Jest
     </a>
   </li>
   <li>
@@ -44,23 +45,29 @@
 </ul>
 
 ### How to run?
+
 Install dependencies
+
 ```
 yarn || npm install
 ```
 
 Development server
+
 ```
 yarn dev || npm run dev
 ```
 
 Production server
+
 ```
 yarn server || npm run server
 ```
 
 ### How to deploy on vercel?
+
 Use the vercel cli to deploy
+
 ```
 yarn run vercel
 yarn run vercel --prod
