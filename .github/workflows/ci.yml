@@ -30,9 +30,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo'Installing all dependencies'
+      - run: echo "Installing all dependencies"
       - run: yarn install
-      - run: echo'Testing all useCases'
+      - run: echo "Testing all useCases"
       - run: yarn test
-      - run: echo'Starting typescript compiling'
+      - run: echo "Starting typescript compiling"
       - run: yarn build
