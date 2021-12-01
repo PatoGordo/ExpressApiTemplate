@@ -1,5 +1,7 @@
 import app from "@/app";
 
-app.listen(3000, () => {
-  console.log("🏃 Server Running");
+const serverPort = 3000;
+
+app.listen(serverPort, () => {
+  console.log(`[SERVER] 🏃 Running localhost:${serverPort}`);
 });

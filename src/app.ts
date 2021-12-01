@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import cors from "cors";
 import { routes } from "@/routes";
+import "@/databases/postgres";
 
 class App {
   public app: Application;
