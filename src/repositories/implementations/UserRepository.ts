@@ -10,26 +10,30 @@ export class UserRepository implements IUserRepository {
     email: string;
     password: string;
   }): Promise<User> {
-    const userRepository = getRepository(User);
+    try {
+      const userRepository = getRepository(User);
 
-    const isEmailAlreadyUsed = await userRepository.findOne({
-      where: {
-        email
+      const isEmailAlreadyUsed = await userRepository.findOne({
+        where: {
+          email
+        }
+      });
+
+      if (isEmailAlreadyUsed) {
+        throw new Error("This email is already in use!");
       }
-    });
 
-    if (isEmailAlreadyUsed) {
-      throw new Error("This email is already in use!");
+      const user = userRepository.create({
+        email,
+        password
+      });
+
+      await userRepository.save(user);
+
+      return user;
+    } catch (err) {
+      throw new Error((err as Error).message);
     }
-
-    const user = userRepository.create({
-      email,
-      password
-    });
-
-    await userRepository.save(user);
-
-    return user;
   }
   public async deleteOne({
     email,
@@ -40,20 +44,24 @@ export class UserRepository implements IUserRepository {
     password: string;
     id: string;
   }): Promise<void> {
-    const userRepository = getRepository(User);
+    try {
+      const userRepository = getRepository(User);
 
-    const user = await userRepository.findOne({
-      where: {
-        email,
-        password,
-        id
+      const user = await userRepository.findOne({
+        where: {
+          email,
+          password,
+          id
+        }
+      });
+
+      if (!user) {
+        throw new Error("This user does not exists");
       }
-    });
 
-    if (!user) {
-      throw new Error("This user does not exists");
+      await userRepository.remove(user);
+    } catch (err) {
+      throw new Error((err as Error).message);
     }
-
-    await userRepository.remove(user);
   }
 }
