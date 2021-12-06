@@ -1,8 +1,8 @@
-import { UserRepository } from "@/repositories/implementations/UserRepository";
+import { PostgresUserRepository } from "@/repositories/implementations/PostgresUserRepository";
 import { CreateUserController } from "./CreateUser.controller";
 import { CreateUserUseCase } from "./CreateUser.useCase";
 
-const repository = new UserRepository();
+const repository = new PostgresUserRepository();
 
 const createUserUseCase = new CreateUserUseCase(repository);
 const createUserController = new CreateUserController(createUserUseCase);

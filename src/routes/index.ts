@@ -1,15 +1,21 @@
+import { ensureAuthenticated } from "@/authentication/middlewares/ensureAuthenticated.middleware";
 import { Router } from "express";
-import { todoRoutes } from "./todo.routes";
 import { userRoutes } from "./user.routes";
 
 const routes = Router();
 
 routes.use("/user", userRoutes);
-routes.use("/todo", todoRoutes);
 
 routes.get("/", (req, res) => {
   res.status(200).json({
     message: "Hello World!"
+  });
+});
+
+routes.get("/secure", ensureAuthenticated, (req, res) => {
+  res.status(200).json({
+    message: "Secure Route Message",
+    id: req.uid
   });
 });
 

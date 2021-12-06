@@ -13,12 +13,14 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "baseUrl": ".",
+    "typeRoots": ["./src/types"],
     "paths": {
       "@/*": [
         "./src/*"
       ]
     }
   },
+
   "include": [
     "./src/**/*.ts"
   ],

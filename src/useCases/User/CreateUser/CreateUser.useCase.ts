@@ -5,11 +5,15 @@ import { CreateUserDTO } from "./CreateUser.dto";
 export class CreateUserUseCase {
   constructor(private repository: IUserRepository) {}
 
-  public async execute({ email, password }: CreateUserDTO): Promise<User> {
+  public async execute({
+    name,
+    email,
+    password
+  }: CreateUserDTO): Promise<User> {
     try {
-      const result = await this.repository.createOne({ email, password });
+      const user = await this.repository.createUser({ name, email, password });
 
-      return result;
+      return user;
     } catch (err) {
       throw new Error((err as Error).message);
     }

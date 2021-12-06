@@ -3,3 +3,5 @@ dist
 build
 .vercel
 .repltit
+yarn-error.log
+yarn.lock
