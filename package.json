@@ -9,7 +9,9 @@
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migrate:create": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:create -n",
     "migrate:up": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run",
-    "migrate:down": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert"
+    "migrate:down": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert",
+    "deploy:preview": "yarn build && vercel",
+    "deploy:prod": "yarn build && vercel --prod"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -17,6 +19,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
+    "serverless-http": "^2.7.0",
     "typeorm": "^0.2.41",
     "uuidv4": "^6.2.12"
   },

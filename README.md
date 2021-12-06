@@ -46,6 +46,17 @@
 
 ### How to run?
 
+setup a .env file in the root directory and add this informations
+
+```
+ENV=DEV or PROD
+DB_HOST=YOUR_POSTGRES_DB_HOST
+DB_USER=YOUR_POSTGRES_DB_USER
+DB_PASS=YOUR_POSTGRES_DB_PASSWORD
+DB_DB=YOUR_POSTGRES_DB_DATABASE
+JWT_SECRET=YOUR_JWT_SECRET
+```
+
 Install dependencies
 
 ```
@@ -66,9 +77,26 @@ yarn server || npm run server
 
 ### How to deploy on vercel?
 
-Use the vercel cli to deploy
+Create a new vercel project add add yours environment variables
 
 ```
-yarn run vercel
-yarn run vercel --prod
+ENV=PROD
+DB_HOST=YOUR_POSTGRES_DB_HOST
+DB_USER=YOUR_POSTGRES_DB_USER
+DB_PASS=YOUR_POSTGRES_DB_PASSWORD
+DB_DB=YOUR_POSTGRES_DB_DATABASE
+JWT_SECRET=YOUR_JWT_SECRET
+```
+
+Use the scripts below to deploy on vercel
+
+Deploy a preview version
+```
+yarn vercel:preview
+```
+
+Deploy a production version
+
+```
+yarn vercel:prod
 ```

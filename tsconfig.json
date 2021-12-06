@@ -22,7 +22,8 @@
   },
 
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./ormconfig.ts"
   ],
   "exclude": [
     "dist"
